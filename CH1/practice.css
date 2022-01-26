@@ -1,0 +1,24 @@
+/* 전체에 글씨체 먹이는 코드 */
+* {
+    font-family: 'Nanum Gothic', sans-serif;
+}
+.wrap{
+    margin:10px auto;   
+    /* 대표적인 중앙정렬 속성이라고 한다 
+    10px : 10px만큼 여백을 주고
+    auto : 가로 중앙에 배치한다는 뜻. 자연스럽게 좌우 여백이 균등하게 분배 */
+    width: 300px;
+    /* 가끔 위의 margin으로 중앙정렬이 안 될 떄가 있다
+    이 경우는 폭의 연산이 불가능하기 때문이다. 폭을 정해주면 계산해서 중앙정렬 해준다 */
+}
+.mytitle {
+    background-image: url('https://www.ancient-origins.net/sites/default/files/field/image/Agesilaus-II-cover.jpg');
+    color:white;
+    width: 300px;
+    height: 200px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+    text-align: center;
+    padding-top: 40px;
+}
