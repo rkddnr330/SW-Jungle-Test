@@ -39,6 +39,10 @@
           width : 500px;
           padding : 24px;
       }
+
+      #post-box {
+          display:block;
+      }
     </style>
 
     <script>
@@ -47,6 +51,18 @@
         }
         function hello(){
             console.log('얌마 ㅋㅋ');
+        }
+
+        function openclose(){
+            let status = $('#post-box').css('display')
+            if (status == 'block') {
+                $('#post-box').hide()
+                $('#post-box-name').text('포스팅 박스 열어뿌기ㅋㅋ ')
+            } else {
+                $('#post-box').show()
+                console.log(status)
+                $('#post-box-name').text('포스팅 박스 닫아뿌기ㅋㅋ ')
+            }
         }
     </script>
 </head>
@@ -57,10 +73,10 @@
             <h1 class="display-4">엣헴 ㅋㅋ 나 홀로 링크 메모장! ㅋㅅaㅋ</h1>
             <p class="lead">중요한 링크를 저장해두고 나중에 볼 수 있는 공간ㅋㅋ</p>
             <hr class="my-4">
-            <a class="btn btn-primary btn-lg" href="#" role="button">포스팅 박스 열어뿌기 ㅋㅋ</a>
+            <a onclick='openclose()' id = 'post-box-name' class="btn btn-primary btn-lg" href="#" role="button">포스팅 박스 열어뿌기 ㅋㅋ</a>
         </div>
 
-        <div class='form-border'>
+        <div class='form-border' id='post-box'>
           <div class="form-group">
             <label for="exampleInputEmail1">아티클 URL</label>
             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
