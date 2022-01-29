@@ -1,0 +1,18 @@
+* {
+    font-family: 'Stylish', sans-serif;
+}
+
+.wrap {
+    width: 900px;
+    /* 중앙정렬 어케 하냐 .. */
+}
+
+.post-box {
+    border: solid 2px black ;
+    padding: 50px;
+    width: 600px;
+}
+
+#cards {
+    margin-top: 30px;
+}
