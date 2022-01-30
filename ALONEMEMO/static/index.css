@@ -3,11 +3,14 @@
 }
 
 .wrap {
+    /* 중앙정렬 어케 하냐 ... */
+    margin: 10px auto;
     width: 900px;
-    /* 중앙정렬 어케 하냐 .. */
 }
 
-.post-box {
+#post-box {
+    display: none;
+    margin: 20px auto;
     border: solid 2px black ;
     padding: 50px;
     width: 600px;
@@ -15,4 +18,8 @@
 
 #cards {
     margin-top: 30px;
+}
+
+#card-text-comment {
+    color: blue;
 }
