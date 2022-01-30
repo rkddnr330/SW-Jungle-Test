@@ -4,22 +4,25 @@
 
 .wrap {
     /* 중앙정렬 어케 하냐 ... */
-    margin: 10px auto;
+    margin: auto;
     width: 900px;
 }
 
 #post-box {
-    display: none;
+    width: 500px;
     margin: 20px auto;
-    border: solid 2px black ;
     padding: 50px;
-    width: 600px;
+    border: solid 2px black ;
+    border-radius: 5px;
+
+    display: none;
 }
 
 #cards {
     margin-top: 30px;
 }
 
-#card-text-comment {
+.card-text-comment {
     color: blue;
+    font-weight: bold;
 }

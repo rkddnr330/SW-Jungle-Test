@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>나 홀로 메모장</title>
+    <title>SW사관학교 정글 | 나홀로 메모장 [try.1]</title>
 
     <!-- css 파일 -->
     <link rel='stylesheet' href='../static/index.css'>
@@ -24,16 +24,56 @@
 
     <!-- JS 코드 -->
     <script>
+
+        // 이건 뭐지?
+        $(document).ready(function () {
+            $('#cards-box').html('');
+            showArticles();
+        });
+
+        // 포스팅박스 열고 닫는 함수
         function openclose(){
             if ( $('#post-box').css('display') == 'block') {
-                $('#post-box').hide()
-                $('#post-box-text').text('포스팅박스 열기')
+                $('#post-box').hide();
+                $('#post-box-text').text('포스팅박스 열기');
 
             } else {
-                $('#post-box').show()
-                $('#post-box-text').text('포스팅박스 닫기')
-
+                $('#post-box').show();
+                $('#post-box-text').text('포스팅박스 닫기');
             }
+        }
+
+        // [CRUD - Create by POST] 글 등록하는 함수
+        function postArticle() {
+            $.ajax({
+                type: 'POST',
+                url: '/memo',
+                data: {},
+                success: function(response) {
+                    if (response['result'] == 'success') {
+                        alert(reponse['msg']);
+                    }
+                }
+            })
+        }
+
+        // [CRUD - Read by GET] 등록한 글 가져와서 띄우는 함수
+        function showArticles(){
+            $.ajax({
+                type: 'GET',
+                url: '/memo',
+                data: {},
+                success: function(response) {
+                    if (response['result']=='success'){
+                        alert(response['msg']);
+                    }
+                }
+            })
+        }
+
+        // 이건 뭘까?
+        function makeCard(url, title, desc, comment, image){
+
         }
     </script>
 
@@ -51,17 +91,19 @@
 
         <!-- post box -->
         <div id='post-box'>
-            <form>  
-                <div class="form-group">
-                  <label for="exampleInputEmail1">아티클 URL</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">간단 코멘트</label>
-                  <input class="form-control" id="exampleInputPassword1">
-                </div>
-                <button type="submit" class="btn btn-primary">기사저장</button>
-              </form>
+            <div class="form-group">
+                <!-- for='post-url'로 수정 -->
+              <label for="post-url">아티클 URL</label> 
+              <input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="form-group">
+                <!-- for='post-comment'로 수정 -->
+              <label for="post-comment">간단 코멘트</label>
+              <!-- input에서 textarea로 수정 -->
+              <textarea id='post-comment' class='form-control' rows='2'></textarea>
+            </div>
+            <!-- button type='button'으로 수정, postArticle 함수 추가 -->
+            <button type="button" onclick='postArticle()' class="btn btn-primary">기사저장</button>
         </div>
 
         <!-- 카드 column -->
