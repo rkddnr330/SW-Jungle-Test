@@ -74,16 +74,28 @@
                 data: {},
                 success: function(response) {
                     if (response['result']=='success'){
-                        alert(response['msg']);
+                        let articles = response['articles'];
+                        for (let i = 0; i<articles.length; i++ ) {
+                            makeCard(articles[i]['image'], articles[i]['url'], articles[i]['title'],articles[i]['desc'],articles[i]['comment'])
+                        }
                     }
                 }
             })
         }
 
-        // 이건 뭘까?
+        // [CRUD] - Create
         function makeCard(url, title, desc, comment, image){
-
+            let temp_html = `<div class="card">
+                <img src="${image}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title"><a href="${url}">${title}</a></h5>
+                  <p class="card-text">${desc}</p>
+                  <p class="card-text-comment">${comment}</p>
+                </div>
+              </div>`;
+              $('#cards-box').append(temp_html);
         }
+        
     </script>
 
 </head>

@@ -73,3 +73,13 @@ def post_articles():
     db.articles.insert_one(article)
 
     return jsonify({'result':'success'})
+
+# 1. mongoDB에서 _id 값을 제외한 모든 데이터 조회해오기 (Read)
+# 2. articles라는 키 값으로 articles 정보 보내주기
+app.route('/memo',methods=['GET'])
+def read_articles():
+    # 1. 모든 document 찾기 & _id 값은 출력에서 제외하기
+    result = list(db.articles.find({},{'_id':0}))
+
+    # 2. articles라는 키 값으로 영화정보 내려주기
+    return jsonify({'result':'success','articles':result})
